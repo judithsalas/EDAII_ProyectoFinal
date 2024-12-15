@@ -17,7 +17,7 @@ La aplicación se basa en un enfoque personalizado que combina:
 
 ### **1. Código para Generar la Base de Datos**
 
-El primer componente del proyecto se encarga de generar una base de datos con información sobre productos de skincare (inicie el archivo basedatos.py).
+El primer componente del proyecto se encarga de generar una base de datos con información sobre productos de skincare (ejecute el archivo basedatos.py).
 
 - **Fuente de Datos:**
   - Los datos se obtienen mediante consultas a la API de Google Custom Search para buscar productos de skincare con atributos como:

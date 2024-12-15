@@ -3,7 +3,7 @@ import csv
 import random
 
 # Configuración de la API
-API_KEY = "AIzaSyBjPGXML14jtW8JB-r3WpXaK8eNoJGGTDo"
+API_KEY = #te la adjunto en otro documento si es necesaria
 SEARCH_ENGINE_ID = "f4438e74b14cb45d4"
 
 # Lista de ingredientes según el tipo de producto

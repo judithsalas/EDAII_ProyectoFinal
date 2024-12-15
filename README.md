@@ -143,8 +143,8 @@ Este componente es la interfaz principal con la que interactúa el usuario. Ofre
 - Resuelve el problema de maximizar la puntuación total de los productos seleccionados dentro del presupuesto.
 - Garantiza la solución óptima utilizando una matriz de programación dinámica para almacenar subproblemas.
 - Complejidad:
-  - Temporal: \( O(n \cdot W) \), donde \( n \) es el número de productos y \( W \) es el presupuesto máximo.
-  - Espacial: \( O(n \cdot W) \) (se puede optimizar a \( O(W) \) usando una matriz unidimensional).
+  - Temporal: \( O(n * W) \), donde \( n \) es el número de productos y \( W \) es el presupuesto máximo.
+  - Espacial: \( O(n * W) \) (se puede optimizar a \( O(W) \) usando una matriz unidimensional).
 
 ---
 

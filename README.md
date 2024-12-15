@@ -8,8 +8,9 @@ La aplicación se basa en un enfoque personalizado que combina:
 - **Un test para identificar el tipo de piel** del usuario si este no lo sabe.
 - **Filtros avanzados** que permiten especificar presupuesto, ingredientes a evitar y preferencias.
 - **Algoritmos eficientes**, como la **Programación Dinámica** (Problema de la Mochila), para garantizar que el usuario reciba la mejor combinación de productos dentro de su presupuesto.
+- **Visualización mediante un grafo estrella**, que muestra la rutina escogida de forma clara y visual, con enlaces directos a los productos seleccionados.
 
-**Nota:** Las puntuaciones y los precios de los productos se generan de forma aleatoria debido a que la API utilizada no proporciona acceso directo a estos datos. Sin embargo, al hacer clic en la imagen de un producto en la visualización interactiva, se accede al enlace del producto real. Esta funcionalidad sirve como una demostración de cómo sería el sistema si se integraran datos reales.
+**Nota:** Las puntuaciones y los precios de los productos se generan de forma aleatoria debido a que la API utilizada no proporciona acceso directo a estos datos. Sin embargo, al hacer clic en la imagen de un producto en la visualización interactiva, se accede al enlace del producto real. Esta funcionalidad sirve como una demostración de cómo sería el sistema si se integraran datos reales. Es importante mencionar que esta herramienta sugiere artículos según las preferencias y el presupuesto del usuario, pero para problemas más específicos o condiciones médicas, se recomienda consultar con un dermatólogo.
 
 ---
 
@@ -17,7 +18,7 @@ La aplicación se basa en un enfoque personalizado que combina:
 
 ### **1. Código para Generar la Base de Datos**
 
-El primer componente del proyecto se encarga de generar una base de datos con información sobre productos de skincare (ejecute el archivo basedatos.py).
+El primer componente del proyecto se encarga de generar una base de datos con información sobre productos de skincare.
 
 - **Fuente de Datos:**
   - Los datos se obtienen mediante consultas a la API de Google Custom Search para buscar productos de skincare con atributos como:
@@ -73,7 +74,7 @@ Este componente es la interfaz principal con la que interactúa el usuario. Ofre
 #### **d. Visualización Interactiva**
 
 - **¿Qué hace?**
-  - Muestra los productos seleccionados en un grafo interactivo.
+  - Muestra los productos seleccionados en un grafo estrella interactivo.
   - Los nodos del grafo incluyen:
     - La imagen del producto.
     - Su precio.

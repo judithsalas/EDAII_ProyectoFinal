@@ -113,7 +113,6 @@ def abrir_ventana_principal(tipo_piel=None):
     tipo_piel_var = tk.StringVar(value=tipo_piel)  # Variable para tipo de piel seleccionada
     rutina_var = tk.StringVar(value="Simple")
     categoria_var = tk.StringVar()
-    alergenos_var = tk.StringVar()
 
     # Obtener todas las categorías y alérgenos únicos
     categorias = sorted(set(p["tipo"] for p in productos))
@@ -132,7 +131,12 @@ def abrir_ventana_principal(tipo_piel=None):
     ttk.Combobox(ventana, textvariable=categoria_var, values=categorias).pack(pady=5)
 
     ttk.Label(ventana, text="Selecciona ingredientes/alérgenos (opcional):").pack(pady=5)
-    ttk.Combobox(ventana, textvariable=alergenos_var, values=alergenos, state="readonly").pack(pady=5)
+    
+    # Listbox para selección múltiple de alérgenos
+    lista_alergenos = tk.Listbox(ventana, selectmode="multiple", height=10, exportselection=False)
+    for alergeno in alergenos:
+        lista_alergenos.insert(tk.END, alergeno)
+    lista_alergenos.pack(pady=5)
 
     puntuacion_min_var = tk.StringVar(value="")
     precio_min_var = tk.StringVar(value="")
@@ -150,17 +154,20 @@ def abrir_ventana_principal(tipo_piel=None):
     def generar():
         rutina = rutina_var.get()
         categoria = categoria_var.get()
-        alergeno = alergenos_var.get()
         tipo_piel_seleccionado = tipo_piel_var.get().lower()
         puntuacion_min = float(puntuacion_min_var.get()) if puntuacion_min_var.get() else 0
         precio_min = float(precio_min_var.get()) if precio_min_var.get() else 0
         precio_max = float(precio_max_var.get()) if precio_max_var.get() else float('inf')
 
-        # Filtrar productos según tipo de piel y alergeno
+        # Obtener alérgenos seleccionados
+        indices_alergenos = lista_alergenos.curselection()
+        alergenos_seleccionados = [lista_alergenos.get(i) for i in indices_alergenos]
+
+        # Filtrar productos según tipo de piel y alérgenos
         productos_filtrados = [
             p for p in productos 
-            if p["tipo_piel"].lower() == tipo_piel_seleccionado and 
-               (not alergeno or alergeno not in p["ingredientes"]) and
+            if p["tipo_piel"].lower() == tipo_piel_seleccionado and
+               all(alergeno not in p["ingredientes"] for alergeno in alergenos_seleccionados) and
                p["puntuacion"] >= puntuacion_min and
                p["precio"] >= precio_min
         ]

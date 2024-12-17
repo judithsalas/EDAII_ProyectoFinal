@@ -21,7 +21,7 @@ La aplicación se basa en un enfoque personalizado que combina:
 El primer componente del proyecto se encarga de generar una base de datos con información sobre productos de skincare.
 
 - **Fuente de Datos:**
-  - Los datos se obtienen mediante consultas a la API de Google Custom Search para buscar productos de skincare con atributos como:
+  - Los datos se obtienen mediante consultas a la API de Google Custom Search, utilizando un motor de búsqueda personalizado enfocado a páginas web que vendan productos para el cutis. Los resultados incluyen atributos como:
     - Nombre del producto.
     - Imagen del producto.
     - Descripción.
